@@ -247,3 +247,43 @@ function criarPistas() {
 numerarPalavras();
 criarTabuleiro();
 criarPistas();
+
+function conferirRespostas() {
+    let acertos = 0;
+
+    palavras.forEach(palavra => {
+        let respostaJogador = "";
+
+        for (let i = 0; i < palavra.resposta.length; i++) {
+            const posicao = obterPosicao(palavra, i);
+            const campo = document.getElementById(posicao);
+
+            respostaJogador += campo.value.toUpperCase();
+        }
+
+        const correta = respostaJogador === palavra.resposta;
+
+        for (let i = 0; i < palavra.resposta.length; i++) {
+            const posicao = obterPosicao(palavra, i);
+            const campo = document.getElementById(posicao);
+
+            campo.classList.remove("correta", "incorreta");
+
+            if (correta) {
+                campo.classList.add("correta");
+            } else {
+                campo.classList.add("incorreta");
+            }
+        }
+
+        if (correta) {
+            acertos++;
+        }
+    });
+
+    document.getElementById("resultado").textContent =
+        `Acertos: ${acertos} de ${palavras.length}`;
+}
+
+document.getElementById("btn-conferir")
+    .addEventListener("click", conferirRespostas);

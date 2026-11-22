@@ -128,3 +128,30 @@ section h2 {
     }
 
 }
+
+#controles {
+    margin: 20px 0;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+.correta {
+    background-color: #86efac;
+}
+
+.incorreta {
+    background-color: #fca5a5;
+}
