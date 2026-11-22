@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cruzadinha - Arquitetura Computacional</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
         <h1>Cruzadinha de Arquitetura Computacional</h1>
-        <p>Teste seus conhecimentos sobre arquitetura computacional!</p>
+        <p>Descubra as palavras através das pistas!</p>
     </header>
 
     <main>
+
         <section>
             <h2>Tabuleiro</h2>
             <div id="tabuleiro"></div>
@@ -21,10 +24,25 @@
 
         <section>
             <h2>Pistas</h2>
-            <div id="pistas"></div>
+
+            <div class="pistas-container">
+
+                <div>
+                    <h3>Horizontais</h3>
+                    <ol id="horizontais"></ol>
+                </div>
+
+                <div>
+                    <h3>Verticais</h3>
+                    <ol id="verticais"></ol>
+                </div>
+
+            </div>
         </section>
+
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
