@@ -67,7 +67,7 @@ const palavras = [
         linha: 9,
         coluna: 6,
         direcao: "H",
-        pista: "Memória temporária utilizada pelos programas em execução."
+        pista: "Memória volátil usada para guardar dados enquanto o sistema está ligado."
     },
     {
         resposta: "MEMORIADEMASSA",
@@ -256,7 +256,8 @@ function conferirRespostas() {
 
         for (let i = 0; i < palavra.resposta.length; i++) {
             const posicao = obterPosicao(palavra, i);
-            const campo = document.getElementById(posicao);
+            const chave = `${posicao.linha}-${posicao.coluna}`;
+            const campo = document.getElementById(chave);
 
             respostaJogador += campo.value.toUpperCase();
         }
@@ -265,7 +266,8 @@ function conferirRespostas() {
 
         for (let i = 0; i < palavra.resposta.length; i++) {
             const posicao = obterPosicao(palavra, i);
-            const campo = document.getElementById(posicao);
+            const chave = `${posicao.linha}-${posicao.coluna}`;
+            const campo = document.getElementById(chave);
 
             campo.classList.remove("correta", "incorreta");
 
@@ -287,3 +289,18 @@ function conferirRespostas() {
 
 document.getElementById("btn-conferir")
     .addEventListener("click", conferirRespostas);
+
+function reiniciarJogo() {
+    Object.keys(casas).forEach(chave => {
+        const campo = document.getElementById(chave);
+
+        campo.value = "";
+        campo.classList.remove("correta", "incorreta");
+    });
+
+    document.getElementById("resultado").textContent =
+        `Acertos: 0 de ${palavras.length}`;
+}
+
+document.getElementById("btn-reiniciar")
+    .addEventListener("click", reiniciarJogo);
